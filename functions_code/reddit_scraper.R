@@ -11,7 +11,6 @@ reddit_scraper <- function(addition = c(""), full_url = paste(c("https://www.red
       library(dplyr)
       
       #Get the site url as specified by "url" argument
-      
             ##Add "/r" string into "full_url" to make the url correct
       if(nchar(addition) != 0){
             full_url <- gsub(".com", ".com/r", full_url) 
@@ -25,7 +24,7 @@ reddit_scraper <- function(addition = c(""), full_url = paste(c("https://www.red
       #Get votes numbers
       votes <- html_nodes(full_url_html, "div.score.unvoted") %>% html_text()
       votes <- as.vector(votes)
-      votes <- gsub("•", missing, votes)
+      votes <- gsub("\\•", missing, votes)
       
       #Get webpage
       webpage <- html_nodes(full_url_html, "span.domain") %>% html_text()
