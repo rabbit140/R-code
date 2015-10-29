@@ -24,7 +24,7 @@ reddit_scraper <- function(addition = c(""), full_url = paste(c("https://www.red
       #Get votes numbers
       votes <- html_nodes(full_url_html, "div.score.unvoted") %>% html_text()
       votes <- as.vector(votes)
-      votes <- gsub("\\•", missing, votes)
+      votes <- gsub("•", missing, votes)
       
       #Get webpage
       webpage <- html_nodes(full_url_html, "span.domain") %>% html_text()
