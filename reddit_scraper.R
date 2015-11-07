@@ -61,6 +61,4 @@ reddit_scraper <- function(addition = c(""), full_url = paste(c("https://www.red
       if(data_y_n == "Y" | data_y_n == "y"){
             View(reddit_data)
       }
-      
-      
 }
