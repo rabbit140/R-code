@@ -42,7 +42,7 @@ reddit_scraper <- function(addition = c(""), full_url = paste(c("https://www.red
             row.names(reddit_data) <- seq(1, along.with = reddit_data$votes)
       }
       
-      
+      #Check whether file already exists and overwrite on user demand
       if(file.exists(filename)){
             y_n <- readline("File for that subreddit exists, add data? Y/N ")
             if(y_n == "Y" | y_n == "y"){

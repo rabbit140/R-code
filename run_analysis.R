@@ -8,17 +8,10 @@ if(sum(package_names == c("data.table")) == 0) {
 
 suppressMessages(library(data.table))
 
-#Downloads the necessary dataset if it does not exist in the working directory (which it should, according to
-#instructions)
-
-if(file.exists("UCI HAR Dataset") != TRUE){
-      
-      url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-      file <- "downloaded_data.zip"
-      download.file(url, file)
-      unzip(file, exdir = getwd())
-}
-
+url <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+file <- "downloaded_data.zip"
+download.file(url, file)
+unzip(file, exdir = getwd())
 
 #Gets working directory and set appropriate file paths
 filePath <- getwd()
@@ -26,6 +19,7 @@ filePath <- paste(filePath, "/UCI HAR Dataset", sep = "")
 testPath <- paste(filePath, "/test", sep = "")
 trainPath <- paste(filePath, "/train", sep = "")
 
+##DATA PREPARATION
 
 #Extracts features names and creates "X_test" and "X_train" datasets
 features <- read.table(paste(filePath, "/features.txt", sep = ""))
